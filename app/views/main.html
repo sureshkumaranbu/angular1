@@ -1,0 +1,22 @@
+<div class="jumbotron" ng-controller="MainController as mainCtrl">
+    <div ng-repeat="toDo in mainCtrl.toDos">
+        <div class="form-group">
+            <input type='checkbox' ng-model='toDo.done'/>
+            <span>{{toDo.task}}</span>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <form name= 'todoList' ng-submit="mainCtrl.addToDo()">   
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <input name='todoListText' class='form-control' type="text" ng-model='mainCtrl.todo' required/>
+                    <span ng-show='todoList.todoListText.$touched && todoList.todoListText.$invalid'>value required</span>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" type="submit">Add</button>
+                    <button class="btn btn-success" type="button" ng-click="mainCtrl.clear()">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
